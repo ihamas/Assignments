@@ -1,0 +1,128 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("CV"),
+          centerTitle: true,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    // Left Section (Title, Description, and Grid)
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Title
+                          Container(
+                            color: Colors.blue,
+                            padding: const EdgeInsets.all(8.0),
+                            child: const Text(
+                              "Hamas Ahmed",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          // Description
+                          Container(
+                            color: Colors.orange,
+                            padding: const EdgeInsets.all(8.0),
+                            child: const Text(
+                              "description about Hamas Ahmed",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          // Grid of Items
+                          Expanded(
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                              ),
+                              itemCount: 6, // Adjust as per your needs
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  color: Colors.grey[300],
+                                  child: Center(
+                                    child: Text(
+                                      "Item ${index + 1}",
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    // Right Section (Image)
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey[300],
+                        child: const Center(
+                          child: Text(
+                            "Image",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              // Bottom Section (Text and Description)
+              Container(
+                color: Colors.lightBlue[100],
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "Text",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      "Description",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
